@@ -61,20 +61,7 @@ class SensorDysfunction:
         #print(diff)
         x = diff.loc[abs(diff[column_name])>threshold]
         return x.index
-    
-        # if any(column_name in c for c in columns): 
-        #     for t in range(1, T):
-        #         diff = abs(signal.iloc[t]-signal.iloc[t-1])
-        #         if diff > 25:
-        #             sensor_dysfuntion.append(t)
-        #     return sensor_dysfuntion
-        
-    # def weird_peak_hr(self):
-    #     signal = self.extract_data('mon_hr')
-    #     diff = signal.diff(periods = 4, axis = 0)
-    #     x = diff.loc[abs(diff['mon_hr'])>25]
-    #     return x.index
-        
+
         
     def sensor_dysfunction_rr(self):
         """
