@@ -13,6 +13,11 @@ from SensorDysfunction import SensorDysfunction
 
 
 def expand_list_with_window(indices, half_window):
+       """Create a window around the time points where MBP > SBP.
+
+       Returns:
+              A single list with indices that are part of the search window.
+       """
        expanded_list = set()
        for index in indices:
            for i in range(index - half_window, index + half_window + 1):
@@ -22,6 +27,12 @@ def expand_list_with_window(indices, half_window):
    
    
 def get_start_end_points(indices, half_window):
+       """Given a list with indices that are part of the window get the start and end points of the 
+       blood sample event. When the difference between the indices is more than one then that timepoint is a start or end point.
+       
+       Returns:
+              A list with the start and end points of the blood sample events.
+       """
     highlight_window = expand_list_with_window(indices, half_window)
     events = []
     start_idx = 0
@@ -45,6 +56,11 @@ class MakeDataframeIBP:
         self.dataframe = dataframe
 
     def make_dataframe(self, half_window = 60):
+           """Create a dataframe with information about the blood sample events
+
+           Returns:
+                  Dataframe
+           """
         df_events =  pd.DataFrame(columns =['pseudo_id', 'nr_events', 'event_start_time', 'event_end_time','event_start_idx', 'event_end_idx', 'max', 'min','median', 'height', 'nr_nan'])
     
         list_pseudo_id = []
