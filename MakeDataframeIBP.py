@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue May 28 09:45:25 2024
-Checking the duration of sensor dysfunction on RR
 @author: Anne.vandenElzen
 """
 
